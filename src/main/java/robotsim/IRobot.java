@@ -8,6 +8,7 @@ package robotsim;
  *
  */
 public interface IRobot {
-	Boolean validateCommand(String command, int xConstraint, int yConstraint);
-	void executeCommand(String command);
+  Boolean validateCommand(String command, int xConstraint, int yConstraint);
+
+  void executeCommand(String command);
 }
