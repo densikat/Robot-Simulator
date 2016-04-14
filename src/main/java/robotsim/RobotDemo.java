@@ -23,10 +23,11 @@ public class RobotDemo implements IRobot {
     Boolean returnVal = false;
 
     switch (command) {
-    case "MOVE":
-      returnVal = validateMove(xConstraint, yConstraint);
-      break;
-    default:
+      case "MOVE":
+        returnVal = validateMove(xConstraint, yConstraint);
+        break;
+      default:
+        break;
     }
     return returnVal;
   }
@@ -36,28 +37,28 @@ public class RobotDemo implements IRobot {
     Boolean returnVal = false;
 
     switch (currentDirection) {
-    case NORTH:
-      if ((currentY + moveLength) <= yConstraint) {
-        returnVal = true;
-      }
-      break;
-    case SOUTH:
-      if ((currentY - moveLength) >= 0) {
-        returnVal = true;
-      }
-      break;
-    case WEST:
-      if ((currentX - moveLength) >= 0) {
-        returnVal = true;
-      }
-      break;
-    case EAST:
-      if ((currentX + moveLength) <= xConstraint) {
-        returnVal = true;
-      }
-      break;
-    default:
-      break;
+      case NORTH:
+        if ((currentY + moveLength) <= yConstraint) {
+          returnVal = true;
+        }
+        break;
+      case SOUTH:
+        if ((currentY - moveLength) >= 0) {
+          returnVal = true;
+        }
+        break;
+      case WEST:
+        if ((currentX - moveLength) >= 0) {
+          returnVal = true;
+        }
+        break;
+      case EAST:
+        if ((currentX + moveLength) <= xConstraint) {
+          returnVal = true;
+        }
+        break;
+      default:
+        break;
     }
 
     return returnVal;
