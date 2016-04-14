@@ -24,9 +24,7 @@ public class RobotDemo implements IRobot {
 		  break;
 		default: 
 		}
-		
 	  return returnVal;
-	  
 	}
 	
 	private Boolean validateMove(int xConstraint, int yConstraint) {
