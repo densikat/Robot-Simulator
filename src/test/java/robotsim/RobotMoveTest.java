@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-public class RobotMoveTests {
+public class RobotMoveTest {
 
   @Test
   public void testValidateNorthBadMove() {

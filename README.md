@@ -10,6 +10,7 @@ Initially developed on
 
 * Windows 10
 * JRE 8 U73
+* Maven 3.3.9
 
 ## System dependencies and configuration
 
@@ -72,7 +73,17 @@ REPORT
 
 ## Compiling from source
 
+Maven needs to be installed and working.
+
+1) Download source (via zip or clone repository)
+2) Browse to source root
+3) Run "mvn compile" to compile source
+4) Run "mvn package" to create jar file
+
 ## Running tests
+
+1) Browse to source root
+2) Run "mvn test" to execute tests
 
 ## Overview
 

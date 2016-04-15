@@ -15,7 +15,7 @@ public class RobotDemo implements IRobot {
   public RobotDemo(int xcoord, int ycoord, direction dir) {
     currentX = xcoord;
     currentY = ycoord;
-    currentDirection = dir;
+    currentDirection = dir; //ss
   }
 
   public Boolean validateCommand(String command, int xConstraint, int yConstraint) {
