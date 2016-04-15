@@ -26,7 +26,7 @@ java robotsim
 
 To run application from an input file:
 
-java robotsim <path to input file>
+java robotsim pathtoinputfile
 
 ## Valid commands
 
@@ -34,10 +34,10 @@ Note: Commands for interactive and input file are identical
 
 #####PLACE X,Y,DIRECTION
 
-**Purpose:** Places robot on tabletop. Only valid if robot is not on board alread, will be discard otherwise.
+**Purpose:** Places robot on tabletop. Only valid if robot is not on board already, will be discard otherwise.
 
-X = X coordinate on tabletop to place robot. Valid inputs: 1-5
-Y = Y coordinate on tabletop to place robot. Valid inputs: 1-5
+X = X coordinate on tabletop to place robot. Valid inputs: 0-4
+Y = Y coordinate on tabletop to place robot. Valid inputs: 0-4
 DIRECTION = Direction for robot to face. Valid inputs are NORTH, SOUTH, EAST, WEST
 
 #####MOVE
@@ -45,10 +45,6 @@ DIRECTION = Direction for robot to face. Valid inputs are NORTH, SOUTH, EAST, WE
 **Purpose:** Move robot one unit forward in the direction it is currently facing.
 
 Only valid if movement does not take robot off the tabletop edge.
-
-Valid moves are within the following X and Y coordinate ranges
-
-1 => X <= 5, 1 => Y <= 5
 
 #####LEFT
 
@@ -90,6 +86,8 @@ Maven needs to be installed and working.
 ## Design Choices
 
 ## License
+
+MIT License
 
 ## Conclusion
 

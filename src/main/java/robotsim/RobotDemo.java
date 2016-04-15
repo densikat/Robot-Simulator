@@ -4,27 +4,22 @@ public class RobotDemo implements IRobot {
 
   private int currentX;
   private int currentY;
-
-  public enum direction {
-    NORTH, SOUTH, EAST, WEST
-  };
-
-  private direction currentDirection;
+  private Simulator.direction currentDirection;
   private static final int moveLength = 1; // How far the robot is allowed to move
 
-  public RobotDemo(int xcoord, int ycoord, direction dir) {
+  public RobotDemo(int xcoord, int ycoord, Simulator.direction dir) {
     currentX = xcoord;
     currentY = ycoord;
-    currentDirection = dir; //ss
+    currentDirection = dir;
   }
 
-  public Boolean validateCommand(String command, int xConstraint, int yConstraint) {
+  public Boolean validateCommand(Command command, TableTop table) {
 
     Boolean returnVal = false;
 
-    switch (command) {
+    switch (command.getCommandText()) {
       case "MOVE":
-        returnVal = validateMove(xConstraint, yConstraint);
+        returnVal = validateMove(table);
         break;
       default:
         break;
@@ -32,13 +27,13 @@ public class RobotDemo implements IRobot {
     return returnVal;
   }
 
-  private Boolean validateMove(int xConstraint, int yConstraint) {
+  private Boolean validateMove(TableTop table) {
 
     Boolean returnVal = false;
 
     switch (currentDirection) {
       case NORTH:
-        if ((currentY + moveLength) <= yConstraint) {
+        if ((currentY + moveLength) <= table.getYConstraint()) {
           returnVal = true;
         }
         break;
@@ -53,7 +48,7 @@ public class RobotDemo implements IRobot {
         }
         break;
       case EAST:
-        if ((currentX + moveLength) <= xConstraint) {
+        if ((currentX + moveLength) <= table.getXConstraint()) {
           returnVal = true;
         }
         break;
@@ -62,9 +57,10 @@ public class RobotDemo implements IRobot {
     }
 
     return returnVal;
+    
   }
 
-  public void executeCommand(String command) {
+  public void executeCommand(Command command) {
     // TODO Auto-generated method stub
 
   }

@@ -8,57 +8,73 @@ public class RobotMoveTest {
 
   @Test
   public void testValidateNorthBadMove() {
-    RobotDemo robot = new RobotDemo(4, 4, RobotDemo.direction.NORTH);
-    Boolean commandReturn = robot.validateCommand("MOVE", 4, 4);
+    TableTop table = new TableTop(4,4);
+    RobotDemo robot = new RobotDemo(4, 4, Simulator.direction.NORTH);
+    Command moveCommand = new Command("MOVE");
+    Boolean commandReturn = robot.validateCommand(moveCommand, table);
     assertFalse(commandReturn);
   }
 
   @Test
   public void testValidateSouthBadMove() {
-    RobotDemo robot = new RobotDemo(4, 0, RobotDemo.direction.SOUTH);
-    Boolean commandReturn = robot.validateCommand("MOVE", 4, 4);
+    TableTop table = new TableTop(4,4);
+    RobotDemo robot = new RobotDemo(4, 0, Simulator.direction.SOUTH);
+    Command moveCommand = new Command("MOVE");
+    Boolean commandReturn = robot.validateCommand(moveCommand, table);
     assertFalse(commandReturn);
   }
 
   @Test
   public void testValidateWestBadMove() {
-    RobotDemo robot = new RobotDemo(0, 2, RobotDemo.direction.WEST);
-    Boolean commandReturn = robot.validateCommand("MOVE", 4, 4);
+    TableTop table = new TableTop(4,4);
+    RobotDemo robot = new RobotDemo(0, 2, Simulator.direction.WEST);
+    Command moveCommand = new Command("MOVE");
+    Boolean commandReturn = robot.validateCommand(moveCommand, table);
     assertFalse(commandReturn);
   }
 
   @Test
   public void testValidateEastBadMove() {
-    RobotDemo robot = new RobotDemo(4, 3, RobotDemo.direction.EAST);
-    Boolean commandReturn = robot.validateCommand("MOVE", 4, 4);
+    TableTop table = new TableTop(4,4);
+    RobotDemo robot = new RobotDemo(4, 3, Simulator.direction.EAST);
+    Command moveCommand = new Command("MOVE");
+    Boolean commandReturn = robot.validateCommand(moveCommand, table);
     assertFalse(commandReturn);
   }
 
   @Test
   public void testValidateNorthGoodMove() {
-    RobotDemo robot = new RobotDemo(0, 0, RobotDemo.direction.NORTH);
-    Boolean commandReturn = robot.validateCommand("MOVE", 4, 4);
+    TableTop table = new TableTop(4,4);
+    RobotDemo robot = new RobotDemo(0, 0, Simulator.direction.NORTH);
+    Command moveCommand = new Command("MOVE");
+    Boolean commandReturn = robot.validateCommand(moveCommand, table);
     assertTrue(commandReturn);
   }
 
   @Test
   public void testValidateSouthGoodMove() {
-    RobotDemo robot = new RobotDemo(3, 2, RobotDemo.direction.SOUTH);
-    Boolean commandReturn = robot.validateCommand("MOVE", 4, 4);
+    TableTop table = new TableTop(4,4);
+    RobotDemo robot = new RobotDemo(3, 2, Simulator.direction.SOUTH);
+    Command moveCommand = new Command("MOVE");
+    Boolean commandReturn = robot.validateCommand(moveCommand, table);
     assertTrue(commandReturn);
   }
 
   @Test
   public void testValidateWestGoodMove() {
-    RobotDemo robot = new RobotDemo(3, 2, RobotDemo.direction.WEST);
-    Boolean commandReturn = robot.validateCommand("MOVE", 4, 4);
+    TableTop table = new TableTop(4,4);
+    RobotDemo robot = new RobotDemo(3, 2, Simulator.direction.WEST);
+    Command moveCommand = new Command("MOVE");
+    Boolean commandReturn = robot.validateCommand(moveCommand, table);
     assertTrue(commandReturn);
   }
 
   @Test
   public void testValidateEastGoodMove() {
-    RobotDemo robot = new RobotDemo(2, 4, RobotDemo.direction.EAST);
-    Boolean commandReturn = robot.validateCommand("MOVE", 4, 4);
+    TableTop table = new TableTop(4,4);
+    RobotDemo robot = new RobotDemo(2, 4, Simulator.direction.EAST);
+    Command moveCommand = new Command("MOVE");
+    Boolean commandReturn = robot.validateCommand(moveCommand, table);
     assertTrue(commandReturn);
   }
 
