@@ -1,5 +1,10 @@
 package robotsim;
 
+import java.io.BufferedReader;
+import java.io.Console;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class Simulator {
   
   public enum direction {
@@ -17,6 +22,7 @@ public class Simulator {
   }
 
   public static void main(String[] args) {
+    
     RobotDemo mrRobot = new RobotDemo(1, 1, direction.NORTH);
     printMenu();
     TableTop table = new TableTop(4,4);
