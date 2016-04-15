@@ -77,5 +77,19 @@ public class RobotMoveTest {
     Boolean commandReturn = robot.validateCommand(moveCommand, table);
     assertTrue(commandReturn);
   }
+  
+  @Test
+  public void testValidateExecutedMoves() {
+    TableTop table = new TableTop(4,4);
+    RobotDemo robot = new RobotDemo(2, 4, Simulator.direction.EAST);
+    Command moveCommand = new Command("MOVE");
+    
+    robot.executeCommand(moveCommand, table);
+    assertEquals(robot.getCurrentX(),3);
+    
+    robot = new RobotDemo(2, 4, Simulator.direction.SOUTH); // reset robot to face south
+    robot.executeCommand(moveCommand, table); // move one spot
+    assertEquals(robot.getCurrentY(),3);
+  }
 
 }
