@@ -12,7 +12,15 @@ public class RobotDemo implements IRobot {
     currentY = ycoord;
     currentDirection = dir;
   }
-
+  
+  public int getCurrentX() {
+    return currentX;
+  }
+  
+  public int getCurrentY() {
+    return currentY;
+  }
+  
   public Boolean validateCommand(Command command, TableTop table) {
 
     Boolean returnVal = false;
@@ -21,8 +29,27 @@ public class RobotDemo implements IRobot {
       case "MOVE":
         returnVal = validateMove(table);
         break;
+      case "PLACE":
+        returnVal = validatePlace(command, table);
+        break;
       default:
         break;
+    }
+    return returnVal;
+  }
+  
+  private Boolean validatePlace(Command command, TableTop table) {
+    Boolean returnVal = false;
+    
+    // Validate position
+    if(command.getXcoordinate() <= table.getXConstraint() && command.getXcoordinate() >= 0) {
+      if(command.getYcoordinate() <= table.getYConstraint() && command.getYcoordinate() >= 0) {
+        
+        // Valid no robots on table
+        if(table.getCurrentRobot() == null) {
+          returnVal = true;
+        }
+      }
     }
     return returnVal;
   }
@@ -60,8 +87,17 @@ public class RobotDemo implements IRobot {
     
   }
 
-  public void executeCommand(Command command) {
-    // TODO Auto-generated method stub
+  public void executeCommand(Command command, TableTop table) {
+    switch (command.getCommandText()) {
+    case "PLACE":
+      currentX = command.getXcoordinate();
+      currentY = command.getYcoordinate();
+      currentDirection = command.getDirection();
+      table.setCurrentRobot(this);
+      break;
+    default:
+      break;
+  }
 
   }
 

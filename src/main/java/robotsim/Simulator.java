@@ -20,7 +20,7 @@ public class Simulator {
 
   private static void processCommand(IRobot robot, Command command, TableTop table) {
     if (robot.validateCommand(command, table)) {
-      robot.executeCommand(command);
+      robot.executeCommand(command, table);
     }
   }
   
