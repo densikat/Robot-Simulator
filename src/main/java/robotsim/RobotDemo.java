@@ -7,6 +7,7 @@ public class RobotDemo implements IRobot {
   private Simulator.direction currentDirection;
   private static final int moveLength = 1; // How far the robot is allowed to move
 
+  public RobotDemo(){};
   public RobotDemo(int xcoord, int ycoord, Simulator.direction dir) {
     currentX = xcoord;
     currentY = ycoord;
