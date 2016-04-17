@@ -87,7 +87,7 @@ public class Command {
         xCoordinate = Integer.parseInt(splitArgs[0]);
         yCoordinate = Integer.parseInt(splitArgs[1]);
         
-        switch (splitArgs[2].toString()) {
+        switch (splitArgs[2].toString().toUpperCase()) {
         case "NORTH":
           parseState = true;
           direction = Simulator.direction.NORTH;
