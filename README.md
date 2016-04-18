@@ -24,13 +24,21 @@ To run application in interactive mode:
 
 java -jar jarfile
 
-_example._ java -jar robotsim-0.0.1-SNAPSHOT.jar
+_example._ 
+
+    ```console
+	$ java -jar robotsim-0.0.1-SNAPSHOT.jar
+	```
 
 To run application from an input file:
 
 java -jar jarfile pathtoinputfile
 
-_example._ java -jar robotsim-0.0.1-SNAPSHOT.jar pathtoinputfile
+_example._ 
+
+    ```console
+	$ java -jar robotsim-0.0.1-SNAPSHOT.jar pathtoinputfile
+	```
 
 ## Valid commands
 
@@ -102,8 +110,45 @@ Maven needs to be installed and working.
 	$ mvn test
 	```
 
-## Overview
+## Structure
 
+Code is comprised of four main source files
+
+1. Simulator.java
+
+Contains main method.
+
+Class does the following:
+
+    Takes and checks command line arguments passed to the program
+    Runs in either interactive mode or batch (file) mode depending on command line arguments passed
+    Initializes robot and table
+    Takes each command sequentially and processes them
+    
+2. RobotDemo.java
+
+Class representation of a robot
+
+Does the following:
+    
+    Takes a command and validates it against a given table
+    Executes a command against a given table
+    
+3. Command.java
+
+Class representation of a commmand
+
+Does the following:
+
+    Takes a command string, parses string, if valid populates command instance fields
+
+4. TabletTop.java
+
+Class representation of Table Top
+
+Does the following:
+
+    Initializes a table top with specific X and Y upper bounds
 
 ## Design Choices
 
