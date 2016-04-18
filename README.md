@@ -4,6 +4,10 @@ Simulation of toy robot moving on a square tabletop
 
 A robot is placed on a 5x5 tabletop. Instructions are issued to the robot via user input or via a text input file
 
+## Demo
+
+[![](https://raw.githubusercontent.com/densikat/Robot-Simulator/develop/image/output.gif)][dotfiles]
+
 ## Environments
 
 Initially developed on
