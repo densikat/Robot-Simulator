@@ -1,11 +1,19 @@
 package robotsim;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+/**
+ * The Class RobotRightTest.
+ */
 public class RobotRightTest {
 
+  /**
+   * Test right no robot placed on board.
+   */
   @Test
   public void testRightNoRobotPlacedOnBoard() {
     TableTop table = new TableTop(4,4);
@@ -15,6 +23,9 @@ public class RobotRightTest {
     assertFalse(commandReturn);
   }
   
+  /**
+   * Test right robot placed on board.
+   */
   @Test
   public void testRightRobotPlacedOnBoard() {
     TableTop table = new TableTop(4,4);
@@ -22,10 +33,15 @@ public class RobotRightTest {
     Command placeCommand = new Command("PLACE",0,0,Simulator.direction.NORTH);
     robot.executeCommand(placeCommand, table); // place robot on tabletop
     Command rightCommand = new Command("RIGHT");
-    Boolean commandReturn = robot.validateCommand(rightCommand, table); // validate the command to turn left
+    
+    // validate the command to turn left
+    Boolean commandReturn = robot.validateCommand(rightCommand, table); 
     assertTrue(commandReturn);
   }
   
+  /**
+   * Test right robot execution.
+   */
   @Test
   public void testRightRobotExecution() {
     TableTop table = new TableTop(4,4);

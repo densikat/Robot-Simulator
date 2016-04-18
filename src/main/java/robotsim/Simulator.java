@@ -6,27 +6,53 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+/**
+ * The Class Simulator.
+ */
 public class Simulator {
   
+  /**
+   * Direction enum. Used for robot directional heading on TableTop
+   */
   public enum direction {
-    NORTH("NORTH"), SOUTH("SOUTH"), EAST("EAST"), WEST("WEST");
     
+    /** The north. */
+    NORTH("NORTH"), 
+    /** The south. */
+    SOUTH("SOUTH"), 
+    /** The east. */
+    EAST("EAST"), 
+    /** The west. */
+    WEST("WEST");
+    
+    /** The name. */
     private final String name;
 
+    /**
+     * Instantiates a new direction.
+     *
+     * @param s the s
+     */
     private direction(String s) {
-        name = s;
+      name = s;
     }
     
+    /* (non-Javadoc)
+     * @see java.lang.Enum#toString()
+     */
     public String toString() {
       return this.name;
-   }
+    }
   }
 
+  /**
+   * The main method.
+   *
+   * @param args the arguments
+   */
   public static void main(String[] args) {
     
     printWelcome();
-    
-    // Initialize table
     
     TableTop table = new TableTop(4,4);
     
@@ -55,7 +81,14 @@ public class Simulator {
     
   }
   
-  private static void launchInteractive(IRobot robot, TableTop table) throws IOException {
+  /**
+   * Launch interactive.
+   *
+   * @param robot the robot
+   * @param table the table
+   * @throws IOException Signals that an I/O exception has occurred.
+   */
+  private static void launchInteractive(RobotDemo robot, TableTop table) throws IOException {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     
     while (true) {
@@ -66,11 +99,18 @@ public class Simulator {
     
   }
   
-  private static void launchNonInteractive(String path, IRobot robot, TableTop table) {
+  /**
+   * Launch non interactive.
+   *
+   * @param path the path
+   * @param robot the robot
+   * @param table the table
+   */
+  private static void launchNonInteractive(String path, RobotDemo robot, TableTop table) {
     try (Stream<String> stream = Files.lines(Paths.get(path))) {
 
       // loop through each line input file and execute the command
-      stream.forEach(item->{
+      stream.forEach(item-> {
         Command cmd = new Command(item);
         processCommand(robot, cmd, table);
       });
@@ -80,12 +120,18 @@ public class Simulator {
     }
   }
   
+  /**
+   * Prints the path invalid help.
+   */
   private static void printPathInvalidHelp() {
     System.out.println("The path you entered was invalid:");
     System.out.println("Usage:");
     System.out.println("File input mode: java robotsim pathtofile");
   }
   
+  /**
+   * Prints the too many arguments.
+   */
   private static void printTooManyArguments() {
     System.out.println("You entered two many arguments:");
     System.out.println("Usage:");
@@ -93,11 +139,21 @@ public class Simulator {
     System.out.println("File input mode: java robotsim pathtofile");
   }
 
+  /**
+   * Prints the welcome.
+   */
   private static void printWelcome() {
     System.out.println("Welcome to Robot Simulator!");
   }
 
-  private static void processCommand(IRobot robot, Command command, TableTop table) {
+  /**
+   * Process command.
+   *
+   * @param robot the robot
+   * @param command the command
+   * @param table the table
+   */
+  private static void processCommand(RobotDemo robot, Command command, TableTop table) {
     if (robot.validateCommand(command, table)) {
       robot.executeCommand(command, table);
     }
