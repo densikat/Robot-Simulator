@@ -29,7 +29,7 @@ public class RobotLeftTest {
   @Test
   public void testLeftRobotPlacedOnBoard() {
     TableTop table = new TableTop(4,4);
-    RobotDemo robot = new RobotDemo(0, 0, Simulator.direction.EAST);
+    RobotDemo robot = new RobotDemo();
     Command placeCommand = new Command("PLACE",0,0,Simulator.direction.NORTH);
     robot.executeCommand(placeCommand, table); // place robot on tabletop
     Command leftCommand = new Command("LEFT");
