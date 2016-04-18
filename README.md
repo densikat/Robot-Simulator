@@ -87,12 +87,20 @@ Maven needs to be installed and working.
 
 1. Download source (via zip or clone repository)
 2. Browse to source root
-3. Run "mvn package" to compile and package from source
+3. Run the following to compile and package from source
+
+    ```console
+	$ mvn package
+	```
 
 ## Running tests
 
 1. Browse to source root
-2. Run "mvn test" to execute tests
+2. Run the following to execute tests
+
+    ```console
+	$ mvn test
+	```
 
 ## Overview
 
