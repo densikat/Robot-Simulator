@@ -22,11 +22,15 @@ Load command prompt and change to working directory of robotsim class files
 
 To run application in interactive mode:
 
-java robotsim
+java -jar jarfile
+
+_example._ java -jar robotsim-0.0.1-SNAPSHOT.jar
 
 To run application from an input file:
 
-java robotsim pathtoinputfile
+java -jar jarfile pathtoinputfile
+
+_example._ java -jar robotsim-0.0.1-SNAPSHOT.jar pathtoinputfile
 
 ## Valid commands
 
@@ -73,8 +77,17 @@ Maven needs to be installed and working.
 
 1. Download source (via zip or clone repository)
 2. Browse to source root
-3. Run "mvn compile" to compile source
-4. Run "mvn package" to create jar file
+3. Run the following to compile from source
+
+    ```console
+	$ mvn compile
+	```
+
+## Creating executable jar
+
+1. Download source (via zip or clone repository)
+2. Browse to source root
+3. Run "mvn package" to compile and package from source
 
 ## Running tests
 
@@ -83,11 +96,12 @@ Maven needs to be installed and working.
 
 ## Overview
 
+
 ## Design Choices
 
 ## License
 
-MIT License
+[![CC0](https://licensebuttons.net/p/zero/1.0/88x31.png)](http://creativecommons.org/publicdomain/zero/1.0/)
 
 ## Conclusion
 

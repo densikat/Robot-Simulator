@@ -1,10 +1,11 @@
 package robotsim;
 
-import java.nio.file.*;
-import java.util.stream.Stream;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.stream.Stream;
+import java.nio.file.*;
+
 
 /**
  * The Class Simulator.
@@ -46,7 +47,7 @@ public class Simulator {
   }
 
   /**
-   * The main method.
+   * Main method that runs simulator.
    *
    * @param args the arguments
    */

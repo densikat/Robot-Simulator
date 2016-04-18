@@ -135,7 +135,7 @@ public class Command {
   /**
    * Parses the place command arguments.
    * Checks first two numbers are integers and that last argument
-   * is valid direction.
+   * is a valid direction.
    *
    * @param args arguments for place command
    * @return true if command was valid, false otherwise
