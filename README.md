@@ -158,4 +158,4 @@ Does the following:
 
 ## License
 
-[![CC0](https://licensebuttons.net/p/zero/1.0/88x31.png)](http://creativecommons.org/publicdomain/zero/1.0/)
+This project is license under MIT license
