@@ -18,7 +18,7 @@ Initially developed on
 
 ## System dependencies and configuration
 
-* JRE => 8U73
+* JDK => 8U60
 
 ## Successfully tested on following platforms
 
