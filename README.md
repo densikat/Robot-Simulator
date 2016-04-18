@@ -26,9 +26,7 @@ java -jar jarfile
 
 _example._ 
 
-    ```console
 	$ java -jar robotsim-0.0.1-SNAPSHOT.jar
-	```
 
 To run application from an input file:
 
@@ -36,10 +34,8 @@ java -jar jarfile pathtoinputfile
 
 _example._ 
 
-    ```console
 	$ java -jar robotsim-0.0.1-SNAPSHOT.jar pathtoinputfile
-	```
-
+	
 ## Valid commands
 
 Note: Commands for interactive and input file are identical
@@ -114,7 +110,7 @@ Maven needs to be installed and working.
 
 Code is comprised of four main source files
 
-***** Simulator.java *****
+** Simulator.java **
 
 Contains main method.
 
@@ -125,7 +121,7 @@ Class does the following:
     Initializes robot and table
     Takes each command sequentially and processes them
     
-***** RobotDemo.java *****
+** RobotDemo.java **
 
 Class representation of a robot
 
@@ -134,7 +130,7 @@ Does the following:
     Takes a command and validates it against a given table
     Executes a command against a given table
     
-***** Command.java *****
+** Command.java **
 
 Class representation of a commmand
 
@@ -142,7 +138,7 @@ Does the following:
 
     Takes a command string, parses string, if valid populates command instance fields
 
-***** TabletTop.java *****
+** TabletTop.java **
 
 Class representation of Table Top
 
