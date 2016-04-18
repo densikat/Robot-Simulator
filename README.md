@@ -158,4 +158,4 @@ Does the following:
 
 ## License
 
-This project is license under MIT license
+This project is licensed under the [MIT License](http://www.opensource.org/licenses/MIT)
