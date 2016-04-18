@@ -44,7 +44,7 @@ java -jar jarfile pathtoinputfile
 
 _example._ 
 
-	$ java -jar robotsim-0.0.1-SNAPSHOT.jar pathtoinputfile
+	$ java -jar robotsim-0.0.1-SNAPSHOT.jar c:\temp\instructions.txt
 	
 ## Valid commands
 
