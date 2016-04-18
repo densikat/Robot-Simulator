@@ -16,6 +16,12 @@ Initially developed on
 
 * JRE => 8U73
 
+## Successfully tested on following platforms
+
+* Windows 10
+* OS X El Capitan (10.11.4)
+* Ubuntu 15.10
+
 ## Usage Instructions
 
 Load command prompt and change to working directory of robotsim class files
@@ -112,7 +118,7 @@ Code is comprised of four main source files
 
 **Simulator.java**
 
-Contains main method.
+_Contains main method, runs the simulator_
 
 Class does the following:
 
@@ -123,7 +129,7 @@ Class does the following:
     
 **RobotDemo.java**
 
-Class representation of a robot
+_Class representation of a robot_
 
 Does the following:
     
@@ -132,7 +138,7 @@ Does the following:
     
 **Command.java**
 
-Class representation of a commmand
+_Class representation of a commmand_
 
 Does the following:
 
@@ -140,7 +146,7 @@ Does the following:
 
 **TabletTop.java**
 
-Class representation of Table Top
+_Class representation of Table Top_
 
 Does the following:
 
