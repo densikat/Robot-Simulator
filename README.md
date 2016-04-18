@@ -6,7 +6,7 @@ A robot is placed on a 5x5 tabletop. Instructions are issued to the robot via us
 
 ## Demo
 
-[![](https://raw.githubusercontent.com/densikat/Robot-Simulator/develop/image/output.gif)][dotfiles]
+[!](https://raw.githubusercontent.com/densikat/Robot-Simulator/develop/image/output.gif)[dotfiles]
 
 ## Environments
 
