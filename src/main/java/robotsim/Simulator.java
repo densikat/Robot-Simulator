@@ -148,7 +148,8 @@ public class Simulator {
   }
 
   /**
-   * Process command.
+   * Takes a command and then validates it via robot
+   * If command is valid then command is executed.
    *
    * @param robot the robot
    * @param command the command
