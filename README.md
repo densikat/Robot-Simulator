@@ -114,7 +114,7 @@ Maven needs to be installed and working.
 
 Code is comprised of four main source files
 
-1. Simulator.java
+***** Simulator.java *****
 
 Contains main method.
 
@@ -125,7 +125,7 @@ Class does the following:
     Initializes robot and table
     Takes each command sequentially and processes them
     
-2. RobotDemo.java
+***** RobotDemo.java *****
 
 Class representation of a robot
 
@@ -134,7 +134,7 @@ Does the following:
     Takes a command and validates it against a given table
     Executes a command against a given table
     
-3. Command.java
+***** Command.java *****
 
 Class representation of a commmand
 
@@ -142,7 +142,7 @@ Does the following:
 
     Takes a command string, parses string, if valid populates command instance fields
 
-4. TabletTop.java
+***** TabletTop.java *****
 
 Class representation of Table Top
 
@@ -150,12 +150,6 @@ Does the following:
 
     Initializes a table top with specific X and Y upper bounds
 
-## Design Choices
-
 ## License
 
 [![CC0](https://licensebuttons.net/p/zero/1.0/88x31.png)](http://creativecommons.org/publicdomain/zero/1.0/)
-
-## Conclusion
-
-
