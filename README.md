@@ -142,7 +142,7 @@ Does the following:
     
 **Command.java**
 
-_Class representation of a commmand_
+_Class representation of a command_
 
 Does the following:
 

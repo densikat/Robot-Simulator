@@ -30,7 +30,7 @@ public class RobotRightTest {
   public void testRightRobotPlacedOnBoard() {
     TableTop table = new TableTop(4,4);
     RobotDemo robot = new RobotDemo(0, 0, Simulator.direction.EAST);
-    Command placeCommand = new Command("PLACE",0,0,Simulator.direction.NORTH);
+    Command placeCommand = new Command("PLACE",0,0,1);
     robot.executeCommand(placeCommand, table); // place robot on tabletop
     Command rightCommand = new Command("RIGHT");
     
@@ -46,7 +46,7 @@ public class RobotRightTest {
   public void testRightRobotExecution() {
     TableTop table = new TableTop(4,4);
     RobotDemo robot = new RobotDemo(0, 0, Simulator.direction.NORTH);
-    Command placeCommand = new Command("PLACE",0,0,Simulator.direction.NORTH);
+    Command placeCommand = new Command("PLACE",0,0,1);
     robot.executeCommand(placeCommand, table); // place robot on tabletop
     
     Command rightCommand = new Command("RIGHT");

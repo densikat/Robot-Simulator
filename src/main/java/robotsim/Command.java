@@ -15,7 +15,7 @@ public class Command {
   private int yCoordinate;
   
   /** The direction. */
-  private Simulator.direction direction;
+  private Integer direction;
   
   /**
    * Takes a string based command
@@ -43,7 +43,7 @@ public class Command {
    * @param y the y
    * @param dir the direction in the command
    */
-  public Command(String cmdText, int x, int y, Simulator.direction dir) {
+  public Command(String cmdText, int x, int y, int dir) {
     commandText = cmdText;
     xCoordinate = x;
     yCoordinate = y;
@@ -82,7 +82,7 @@ public class Command {
    *
    * @return the direction
    */
-  public Simulator.direction getDirection() {
+  public Integer getDirection() {
     return direction;
   }
   
@@ -154,19 +154,19 @@ public class Command {
         switch (splitArgs[2].toString().toUpperCase()) {
           case "NORTH":
             parseState = true;
-            direction = Simulator.direction.NORTH;
-            break;
-          case "SOUTH":
-            parseState = true;
-            direction = Simulator.direction.SOUTH;
-            break;
-          case "WEST":
-            parseState = true;
-            direction = Simulator.direction.WEST;
+            direction = 1;
             break;
           case "EAST":
             parseState = true;
-            direction = Simulator.direction.EAST;
+            direction = 2;
+            break;
+          case "SOUTH":
+            parseState = true;
+            direction = 3;
+            break;
+          case "WEST":
+            parseState = true;
+            direction = 4;
             break;
           default:
             break;

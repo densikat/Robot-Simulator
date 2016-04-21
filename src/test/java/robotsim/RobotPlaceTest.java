@@ -19,10 +19,10 @@ public class RobotPlaceTest {
     TableTop table = new TableTop(4,4);
     RobotDemo robot = new RobotDemo(4, 4, Simulator.direction.NORTH);
     RobotDemo robot2 = new RobotDemo(4, 4, Simulator.direction.NORTH);
-    Command placeCommand = new Command("PLACE",0,0,Simulator.direction.NORTH);
+    Command placeCommand = new Command("PLACE",0,0,1);
     Boolean commandReturn = robot.validateCommand(placeCommand, table);
     robot.executeCommand(placeCommand, table); // place robot on tabletop
-    Command placeCommand2 = new Command("PLACE",0,0,Simulator.direction.NORTH);
+    Command placeCommand2 = new Command("PLACE",0,0,1);
     
     // should fail as there is already a robot there
     Boolean commandReturn2 = robot2.validateCommand(placeCommand, table); 
@@ -36,7 +36,7 @@ public class RobotPlaceTest {
   public void testValidatePlaceWithXlessThanZero() {
     TableTop table = new TableTop(4,4);
     RobotDemo robot = new RobotDemo(-1, 4, Simulator.direction.NORTH);
-    Command placeCommand = new Command("PLACE",-1,4,Simulator.direction.NORTH);
+    Command placeCommand = new Command("PLACE",-1,4,1);
     Boolean commandReturn = robot.validateCommand(placeCommand, table);
     assertFalse(commandReturn);
   }
@@ -48,7 +48,7 @@ public class RobotPlaceTest {
   public void testValidatePlaceWithXgreaterThanZero() {
     TableTop table = new TableTop(4,4);
     RobotDemo robot = new RobotDemo(5, 4, Simulator.direction.NORTH);
-    Command placeCommand = new Command("PLACE",5,4,Simulator.direction.NORTH);
+    Command placeCommand = new Command("PLACE",5,4,1);
     Boolean commandReturn = robot.validateCommand(placeCommand, table);
     assertFalse(commandReturn);
   }
@@ -60,7 +60,7 @@ public class RobotPlaceTest {
   public void testValidatePlaceWithYlessThanZero() {
     TableTop table = new TableTop(4,4);
     RobotDemo robot = new RobotDemo(0, -1, Simulator.direction.NORTH);
-    Command placeCommand = new Command("PLACE",0,-1,Simulator.direction.NORTH);
+    Command placeCommand = new Command("PLACE",0,-1,1);
     Boolean commandReturn = robot.validateCommand(placeCommand, table);
     assertFalse(commandReturn);
   }
@@ -72,7 +72,7 @@ public class RobotPlaceTest {
   public void testValidatePlaceWithYgreaterThan4() {
     TableTop table = new TableTop(4,4);
     RobotDemo robot = new RobotDemo(0, 5, Simulator.direction.NORTH);
-    Command placeCommand = new Command("PLACE",0,5,Simulator.direction.NORTH);
+    Command placeCommand = new Command("PLACE",0,5,1);
     Boolean commandReturn = robot.validateCommand(placeCommand, table);
     assertFalse(commandReturn);
   }
@@ -84,7 +84,7 @@ public class RobotPlaceTest {
   public void testValidatePlaceWithValidPosition() {
     TableTop table = new TableTop(4,4);
     RobotDemo robot = new RobotDemo();
-    Command placeCommand = new Command("PLACE",0,0,Simulator.direction.NORTH);
+    Command placeCommand = new Command("PLACE",0,0,1);
     robot.executeCommand(placeCommand, table);
     assertEquals(table.getCurrentRobot(),robot);
   }
@@ -96,7 +96,7 @@ public class RobotPlaceTest {
   public void testValidatePlaceWithValidPosition2() {
     TableTop table = new TableTop(4,4);
     RobotDemo robot = new RobotDemo();
-    Command placeCommand = new Command("PLACE",0,0,Simulator.direction.NORTH);
+    Command placeCommand = new Command("PLACE",0,0,1);
     robot.executeCommand(placeCommand, table);
     assertEquals(table.getCurrentRobot(),robot);
   }
@@ -108,7 +108,7 @@ public class RobotPlaceTest {
   public void testValidatePlaceValidateX() {
     TableTop table = new TableTop(4,4);
     RobotDemo robot = new RobotDemo();
-    Command placeCommand = new Command("PLACE",2,2,Simulator.direction.NORTH);
+    Command placeCommand = new Command("PLACE",2,2,1);
     robot.executeCommand(placeCommand, table);
     assertEquals(table.getCurrentRobot(),robot);
     robot.executeCommand(placeCommand, table); // place robot on tabletop
@@ -122,7 +122,7 @@ public class RobotPlaceTest {
   public void testValidatePlaceValidateY() {
     TableTop table = new TableTop(4,4);
     RobotDemo robot = new RobotDemo();
-    Command placeCommand = new Command("PLACE",2,2,Simulator.direction.NORTH);
+    Command placeCommand = new Command("PLACE",2,2,1);
     robot.executeCommand(placeCommand, table);
     assertEquals(table.getCurrentRobot(),robot);
     robot.executeCommand(placeCommand, table); // place robot on tabletop

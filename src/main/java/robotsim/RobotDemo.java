@@ -14,8 +14,10 @@ public class RobotDemo {
   /** The current direction. */
   private Simulator.direction currentDirection;
   
+  private Integer direction;
+  
   /** The Constant moveLength. */
-  private static final int moveLength = 1; // How far the robot is allowed to move
+  public final int moveLength = 1; // How far the robot is allowed to move
 
   /**
    * Instantiates a new default instance of robot.
@@ -43,6 +45,10 @@ public class RobotDemo {
   public int getCurrentX() {
     return currentX;
   }
+  
+  public void setCurrentX(Integer x) {
+    currentX = x;
+  }
 
   /**
    * Gets the current y.
@@ -52,6 +58,10 @@ public class RobotDemo {
   public int getCurrentY() {
     return currentY;
   }
+  
+  public void setCurrentY(Integer y) {
+    currentY = y;
+  }
 
   /**
    * Gets the current direction.
@@ -60,6 +70,14 @@ public class RobotDemo {
    */
   public Simulator.direction getCurrentDirection() {
     return currentDirection;
+  }
+  
+  public Integer getDirection() {
+    return direction;
+  }
+  
+  public void setDirection(Integer dir) {
+    direction = dir;
   }
 
   /**
@@ -187,7 +205,7 @@ public class RobotDemo {
   private void executePlace(Command command, TableTop table) {
     currentX = command.getXcoordinate();
     currentY = command.getYcoordinate();
-    currentDirection = command.getDirection();
+    direction = command.getDirection();
     table.setCurrentRobot(this);
   }
 
@@ -263,6 +281,12 @@ public class RobotDemo {
         break;
       default:
         break;
+    }
+  }
+  
+  public void executeInstruction(Command command, Instruction instruction, TableTop table) {
+    if (instruction.validateInstruction(command, this, table)) {
+      instruction.executeInstruction(command, this, table);
     }
   }
 
