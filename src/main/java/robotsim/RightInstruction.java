@@ -3,7 +3,7 @@ package robotsim;
 public class RightInstruction implements Instruction {
 
   @Override
-  public Boolean validateInstruction(Command command, RobotDemo robot, TableTop table) {
+  public Boolean validateInstruction(Command command, Robot robot, TableTop table) {
     if (table.getCurrentRobot() == robot) {
       return true;
     } else {
@@ -12,7 +12,7 @@ public class RightInstruction implements Instruction {
   }
 
   @Override
-  public void executeInstruction(Command command, RobotDemo robot, TableTop table) {
+  public void executeInstruction(Command command, Robot robot, TableTop table) {
     
     Integer newDirection;
     

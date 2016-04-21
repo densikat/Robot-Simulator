@@ -17,23 +17,4 @@ public class Direction {
     return directionTable.get(i);
   }
   
-  public Integer getNewXLocation(RobotDemo robot) {
-    // Facing EAST, incremement current X, else
-    // facing WEST, decrement current X
-    if (robot.getDirection() == 2) {
-      return robot.getCurrentX() + robot.moveLength;
-    } else {
-      return robot.getCurrentX() - robot.moveLength;
-    }
-  }
-  
-  public Integer getNewYLocation(RobotDemo robot) {
-    // Facing NORTH, incremement current Y, else
-    // facing SOUTH, decrement current X
-    if (robot.getDirection() == 1) {
-      return robot.getCurrentY() + robot.moveLength;
-    } else {
-      return robot.getCurrentY() - robot.moveLength;
-    }
-  }
 }

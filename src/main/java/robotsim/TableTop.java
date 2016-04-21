@@ -12,7 +12,7 @@ public class TableTop {
   private int yConstraint;
   
   /** The current robot. */
-  private RobotDemo currentRobot;
+  private Robot currentRobot;
 
   /**
    * Instantiates a new table top.
@@ -48,7 +48,7 @@ public class TableTop {
    *
    * @return the current robot
    */
-  public RobotDemo getCurrentRobot() {
+  public Robot getCurrentRobot() {
     return currentRobot;
   }
 
@@ -57,7 +57,7 @@ public class TableTop {
    *
    * @param robot the new current robot
    */
-  public void setCurrentRobot(RobotDemo robot) {
+  public void setCurrentRobot(Robot robot) {
     currentRobot = robot;
   }
 

@@ -13,40 +13,6 @@ import java.nio.file.*;
 public class Simulator {
   
   /**
-   * Direction enum. Used for robot directional heading on TableTop
-   */
-  public enum direction {
-    
-    /** The north. */
-    NORTH("NORTH"), 
-    /** The south. */
-    SOUTH("SOUTH"), 
-    /** The east. */
-    EAST("EAST"), 
-    /** The west. */
-    WEST("WEST");
-    
-    /** The name. */
-    private final String name;
-
-    /**
-     * Instantiates a new direction.
-     *
-     * @param s the s
-     */
-    private direction(String s) {
-      name = s;
-    }
-    
-    /* (non-Javadoc)
-     * @see java.lang.Enum#toString()
-     */
-    public String toString() {
-      return this.name;
-    }
-  }
-
-  /**
    * Main method that runs simulator.
    *
    * @param args the arguments
@@ -57,7 +23,7 @@ public class Simulator {
     
     TableTop table = new TableTop(4,4);
     
-    RobotDemo mrRobot = new RobotDemo();
+    Robot mrRobot = new Robot();
     
     if (args.length == 1) {
       
@@ -89,7 +55,7 @@ public class Simulator {
    * @param table the table
    * @throws IOException Signals that an I/O exception has occurred.
    */
-  private static void launchInteractive(RobotDemo robot, TableTop table) throws IOException {
+  private static void launchInteractive(Robot robot, TableTop table) throws IOException {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     InstructionFactory instructionFactory = new InstructionFactory();
     
@@ -97,7 +63,7 @@ public class Simulator {
       String cmdString = br.readLine();
       Command cmd = new Command(cmdString);
       Instruction instruction = instructionFactory.getInstruction(cmd);
-      if(!(instruction == null)) {
+      if (!(instruction == null)) {
         robot.executeInstruction(cmd, instruction, table);
       }
     }
@@ -111,7 +77,7 @@ public class Simulator {
    * @param robot the robot
    * @param table the table
    */
-  private static void launchNonInteractive(String path, RobotDemo robot, TableTop table) {
+  private static void launchNonInteractive(String path, Robot robot, TableTop table) {
     
     InstructionFactory instructionFactory = new InstructionFactory();
     
@@ -121,7 +87,7 @@ public class Simulator {
       stream.forEach(item-> {
         Command cmd = new Command(item);
         Instruction instruction = instructionFactory.getInstruction(cmd);
-        if(!(instruction == null)) {
+        if (!(instruction == null)) {
           robot.executeInstruction(cmd, instruction, table);
         }
         
@@ -156,20 +122,6 @@ public class Simulator {
    */
   private static void printWelcome() {
     System.out.println("Welcome to Robot Simulator!");
-  }
-
-  /**
-   * Takes a command and then validates it via robot
-   * If command is valid then command is executed.
-   *
-   * @param robot the robot
-   * @param command the command
-   * @param table the table
-   */
-  private static void processCommand(RobotDemo robot, Command command, TableTop table) {
-    if (robot.validateCommand(command, table)) {
-      robot.executeCommand(command, table);
-    }
   }
   
 }
