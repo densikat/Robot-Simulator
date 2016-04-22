@@ -1,9 +1,14 @@
-package robotsim;
+package robotsim.Instructions;
 
+import robotsim.Command;
+import robotsim.Robot;
+import robotsim.TableTop;
+
+// TODO: Auto-generated Javadoc
 /**
- * Instruction to rotate robot right on table.
+ * Instruction to rotate robot left on table.
  */
-public class RightInstruction implements Instruction {
+public class LeftInstruction implements Instruction {
 
   /* (non-Javadoc)
    * @see robotsim.Instruction#validateInstruction(robotsim.Command, robotsim.Robot, robotsim.TableTop)
@@ -25,14 +30,15 @@ public class RightInstruction implements Instruction {
     
     Integer newDirection;
     
-    // Circle around to North (1) if we are at West (4)
-    if (robot.getDirection() == 4) {
-      newDirection = 1;
+    // Circle back around to West (4) if we are at North (1)
+    if (robot.getDirection() == 1) {
+      newDirection = 4;
     } else {
-      newDirection = robot.getDirection() + 1;
+      newDirection = robot.getDirection() - 1;
     }
 
     robot.setDirection(newDirection);
+
   }
 
 }

@@ -1,5 +1,11 @@
-package robotsim;
+package robotsim.Instructions;
 
+import robotsim.Command;
+import robotsim.Direction;
+import robotsim.Robot;
+import robotsim.TableTop;
+
+// TODO: Auto-generated Javadoc
 /**
  * Instruction report current location and
  * coordinates of robot on table.

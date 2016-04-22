@@ -1,5 +1,8 @@
-package robotsim;
+package robotsim.Instructions;
 
+import robotsim.Command;
+
+// TODO: Auto-generated Javadoc
 /**
  * A factory for creating Instruction objects,
  * objects based on command text input. 

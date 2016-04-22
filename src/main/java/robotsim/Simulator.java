@@ -4,8 +4,14 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.stream.Stream;
+
+import robotsim.Commands.CommandFactory;
+import robotsim.Instructions.Instruction;
+import robotsim.Instructions.InstructionFactory;
+
 import java.nio.file.*;
 
+// TODO: Auto-generated Javadoc
 /**
  * Simulator class launches and controls execution flow of game.
  */
@@ -94,10 +100,14 @@ public class Simulator {
    */
   private static void processCommand(String cmdString, Robot robot, TableTop table) {
     InstructionFactory instructionFactory = new InstructionFactory();
-    Command cmd = new Command(cmdString);
-    Instruction instruction = instructionFactory.getInstruction(cmd);
-    if (!(instruction == null)) {
-      robot.executeInstruction(cmd, instruction, table);
+    CommandFactory commandFactory = new CommandFactory();
+    
+    Command cmd = commandFactory.getCommand(cmdString); // Get command object
+    if (!(cmd == null)) { // if command object is valid
+      Instruction instruction = instructionFactory.getInstruction(cmd); // then get the instruction
+      if (!(instruction == null)) { // if the instruction is valid
+        robot.executeInstruction(cmd, instruction, table); // execute instruction
+      }
     }
   }
   

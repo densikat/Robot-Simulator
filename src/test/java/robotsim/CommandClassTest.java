@@ -3,13 +3,24 @@ package robotsim;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
+
+import robotsim.Commands.CommandFactory;
 
 public class CommandClassTest {
 
-  @Test
+  @Test()
   public void testValidateBadDataTypePlaceInstruction() {
-    Command cmd = new Command("PLACE 0,A,NORTH");
-    assertTrue(cmd.getCommandText().toUpperCase().equals("INVALID"));
+    CommandFactory commandFactory = new CommandFactory();
+    Command cmd = commandFactory.getCommand("PLACE 0,A,NORTH");
+    assertEquals(cmd, null);
+  }
+  
+  @Test()
+  public void testValidateBadDataTypePlaceInstruction2() {
+    CommandFactory commandFactory = new CommandFactory();
+    Command cmd = commandFactory.getCommand("PLACE 0,1,1");
+    assertEquals(cmd, null);
   }
 
 }

@@ -1,5 +1,10 @@
-package robotsim;
+package robotsim.Instructions;
 
+import robotsim.Command;
+import robotsim.Robot;
+import robotsim.TableTop;
+
+// TODO: Auto-generated Javadoc
 /**
  * Move instruction, used to validate and move a robot around the board.
  */

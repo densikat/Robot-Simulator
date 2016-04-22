@@ -1,7 +1,9 @@
 package robotsim;
 
 import java.util.Hashtable;
+import java.util.Map;
 
+// TODO: Auto-generated Javadoc
 /**
  * The Class Direction.
  */
@@ -22,6 +24,28 @@ public class Direction {
   }
   
   /**
+   * Validate direction.
+   *
+   * @param direction the direction
+   * @return the boolean
+   */
+  public Boolean validateDirection (String direction) {
+    int returnInt = 0;
+    for (Map.Entry<Integer, String> entry: directionTable.entrySet()){
+      if (direction.toUpperCase().equals(entry.getValue())) {
+        returnInt = entry.getKey();
+      }
+    }
+    
+    if (returnInt == 0) {
+      return false;
+    } else {
+      return true;
+    }
+    
+  }
+  
+  /**
    * Gets the direction.
    *
    * @param directionIndex the index for direction hashtable
@@ -29,6 +53,22 @@ public class Direction {
    */
   public String getDirection(int directionIndex) {
     return directionTable.get(directionIndex);
+  }
+  
+  /**
+   * Gets the direction index.
+   *
+   * @param direction the direction
+   * @return the direction index
+   */
+  public int getDirectionIndex(String direction) {
+    int returnInt = 0;
+    for (Map.Entry<Integer, String> entry: directionTable.entrySet()){
+      if (direction.toUpperCase().equals(entry.getValue())) {
+        returnInt = entry.getKey();
+      }
+    }
+    return returnInt;
   }
   
 }

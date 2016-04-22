@@ -1,5 +1,8 @@
 package robotsim;
 
+import robotsim.Instructions.Instruction;
+
+// TODO: Auto-generated Javadoc
 /**
  * Class representation of a Robot.
  */

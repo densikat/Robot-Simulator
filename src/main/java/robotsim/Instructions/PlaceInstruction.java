@@ -1,5 +1,10 @@
-package robotsim;
+package robotsim.Instructions;
 
+import robotsim.Command;
+import robotsim.Robot;
+import robotsim.TableTop;
+
+// TODO: Auto-generated Javadoc
 /**
  * Instruction place robot on the table.
  */

@@ -1,5 +1,6 @@
 package robotsim;
 
+// TODO: Auto-generated Javadoc
 /**
  * Command class.
  */
@@ -18,35 +19,17 @@ public class Command {
   private Integer direction;
   
   /**
-   * Takes a string based command
-   * Sends that command to attemptParse function
-   * if command is valid then instance will be populated with 
-   * relevant values.
-   * If not the instance will be tagged as INVALID for later handling
-   *
-   * @param cmdText the command text input from file or user
+   * Instantiates a new command.
    */
-  public Command(String cmdText) {
-    
-    if (!attemptParse(cmdText)) {
-      commandText = "INVALID";
-    }
-    
-  }
+  public Command(){};
   
   /**
-   * Instantiates a new command.
+   * Sets the command text.
    *
-   * @param cmdText the cmd text
-   * @param width the x
-   * @param height the y
-   * @param dir the direction in the command
+   * @param cmdText the new command text
    */
-  public Command(String cmdText, int width, int height, int dir) {
+  public void setCommandText (String cmdText) {
     commandText = cmdText;
-    commandWidth = width;
-    commandHeight = height;
-    direction = dir;
   }
   
   /**
@@ -77,106 +60,39 @@ public class Command {
   }
   
   /**
+   * Sets the command width.
+   *
+   * @param width the new command width
+   */
+  public void setCommandWidth(int width) {
+    commandWidth = width;
+  }
+  
+  /**
+   * Sets the command height.
+   *
+   * @param height the new command height
+   */
+  public void setCommandHeight(int height) {
+    commandHeight = height;
+  }
+  
+  /**
+   * Sets the direction.
+   *
+   * @param directionIndex the new direction
+   */
+  public void setDirection (int directionIndex) {
+    direction = directionIndex;
+  }
+  
+  /**
    * Gets the direction.
    *
    * @return the direction
    */
   public Integer getDirection() {
     return direction;
-  }
-  
-  /**
-   * Validates string based command based populates instance if valid and
-   * return true. Otherwise false is returned.
-   *
-   * @param command string based command
-   * @return true if command was valid, false otherwise
-   */
-  public Boolean attemptParse(String command) {
-    Boolean parseState = false;
-    
-    // Split string on space
-    String[] splitCommand = command.split(" ");
-
-    // if only one command, then check for left, right, move, report
-    if (splitCommand.length == 1) {
-      switch (splitCommand[0].toUpperCase()) {
-        case "MOVE":
-          parseState = true;
-          commandText = "MOVE";
-          break;
-        case "LEFT":
-          parseState = true;
-          commandText = "LEFT";
-          break;
-        case "RIGHT":
-          parseState = true;
-          commandText = "RIGHT";
-          break;
-        case "REPORT":
-          parseState = true;
-          commandText = "REPORT";
-          break;
-        default:
-          break;
-      }
-    } else if (splitCommand.length == 2) {
-      if (splitCommand[0].toUpperCase().equals("PLACE")) {
-        if (parsePlaceArguments(splitCommand[1])) {
-          parseState = true;
-        }
-      }
-    }
-    
-    return parseState;
-  }
-  
-  /**
-   * Parses the place command arguments.
-   * Checks first two numbers are integers and that last argument
-   * is a valid direction.
-   *
-   * @param args arguments for place command
-   * @return true if command was valid, false otherwise
-   */
-  private Boolean parsePlaceArguments(String args) {
-    Boolean parseState = false;
-    
-    String[] splitArgs = args.split(",");
-    
-    if (splitArgs.length == 3) {
-      try {
-        commandText = "PLACE";
-        commandWidth = Integer.parseInt(splitArgs[0]);
-        commandHeight = Integer.parseInt(splitArgs[1]);
-        
-        switch (splitArgs[2].toString().toUpperCase()) {
-          case "NORTH":
-            parseState = true;
-            direction = 1;
-            break;
-          case "EAST":
-            parseState = true;
-            direction = 2;
-            break;
-          case "SOUTH":
-            parseState = true;
-            direction = 3;
-            break;
-          case "WEST":
-            parseState = true;
-            direction = 4;
-            break;
-          default:
-            break;
-        }
-        
-      } catch (Exception ex) {
-        parseState = false;
-      }
-    }
-    
-    return parseState;
   }
   
 }
