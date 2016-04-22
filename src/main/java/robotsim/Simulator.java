@@ -5,9 +5,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.stream.Stream;
 
-import robotsim.Commands.CommandFactory;
-import robotsim.Instructions.Instruction;
-import robotsim.Instructions.InstructionFactory;
+import robotsim.Commands.RobotCommand;
+import robotsim.Commands.RobotCommandFactory;
 
 import java.nio.file.*;
 
@@ -99,16 +98,14 @@ public class Simulator {
    * @param table the table
    */
   private static void processCommand(String cmdString, Robot robot, TableTop table) {
-    InstructionFactory instructionFactory = new InstructionFactory();
-    CommandFactory commandFactory = new CommandFactory();
     
-    Command cmd = commandFactory.getCommand(cmdString); // Get command object
-    if (!(cmd == null)) { // if command object is valid
-      Instruction instruction = instructionFactory.getInstruction(cmd); // then get the instruction
-      if (!(instruction == null)) { // if the instruction is valid
-        robot.executeInstruction(cmd, instruction, table); // execute instruction
-      }
+    RobotCommandFactory commandFactory = new RobotCommandFactory();
+    RobotCommand command = commandFactory.getCommand(cmdString);
+    
+    if (!(command == null)) {
+      robot.executeInstruction(command, table);
     }
+    
   }
   
   /**

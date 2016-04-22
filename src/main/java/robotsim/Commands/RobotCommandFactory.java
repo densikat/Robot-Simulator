@@ -1,27 +1,19 @@
 package robotsim.Commands;
 
-import java.util.ArrayList;
 import java.util.Hashtable;
-import java.util.Map;
 
-import robotsim.Command;
-
-// TODO: Auto-generated Javadoc
-/**
- * A factory for creating Command objects.
- */
-public class CommandFactory {
-
+public class RobotCommandFactory {
+  
   private Hashtable<String, String> commandList;
   
-  public CommandFactory() {
+  public RobotCommandFactory() {
     commandList = new Hashtable<String, String>();
     
-    commandList.put("MOVE", "robotsim.Commands.MoveCommand");
-    commandList.put("LEFT", "robotsim.Commands.LeftCommand");
-    commandList.put("RIGHT", "robotsim.Commands.RightCommand");
-    commandList.put("REPORT", "robotsim.Commands.ReportCommand");
-    commandList.put("PLACE", "robotsim.Commands.PlaceCommand");
+    commandList.put("MOVE", "robotsim.Commands.RobotMoveCommand");
+    commandList.put("LEFT", "robotsim.Commands.RobotLeftCommand");
+    commandList.put("RIGHT", "robotsim.Commands.RobotRightCommand");
+    commandList.put("REPORT", "robotsim.Commands.RobotReportCommand");
+    commandList.put("PLACE", "robotsim.Commands.RobotPlaceCommand");
   }
   
   private String getClassName(String cmdString) {
@@ -32,6 +24,7 @@ public class CommandFactory {
     
     return classString;
   }
+  
   /**
    * Gets the command.
    *
@@ -39,9 +32,9 @@ public class CommandFactory {
    * @return the command
    */
   
-  public Command getCommand(String cmdCommand) {
+  public RobotCommand getCommand(String cmdCommand) {
     
-    CommandInterface command = null;
+    RobotCommand command = null;
     
     // Split string on space
     String[] splitCommand = cmdCommand.split(" ");
@@ -50,7 +43,8 @@ public class CommandFactory {
     
     if (!(className.equals(""))) {
       try {
-        command = (CommandInterface) Class.forName(className).newInstance();
+        command = (RobotCommand) Class.forName(className).newInstance();
+        command.initializeCommand(cmdCommand);
       } catch (InstantiationException e) {
         e.printStackTrace();
       } catch (IllegalAccessException e) {
@@ -62,13 +56,13 @@ public class CommandFactory {
     
     // If we have received a valid object then return the command object from it
     // otherwise we will return null and handle in calling code.
-    if (command != null) {
-      return command.getCommand(cmdCommand);  
+    if (command != null && command.getCommandText() != null) {
+      return command;  
     } else {
       return null;
     }
     
     
   }
-  
+
 }

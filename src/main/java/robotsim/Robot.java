@@ -1,6 +1,6 @@
 package robotsim;
 
-import robotsim.Instructions.Instruction;
+import robotsim.Commands.RobotCommand;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -116,10 +116,12 @@ public class Robot {
    * @param instruction the instruction to execute
    * @param table the table to execute the instruction on
    */
-  public void executeInstruction(Command command, Instruction instruction, TableTop table) {
-    if (instruction.validateInstruction(command, this, table)) {
-      instruction.executeInstruction(command, this, table);
+  public void executeInstruction(RobotCommand command, TableTop table) {
+    
+    if (command.validateInstruction(this, table)) {
+      command.executeInstruction(this, table);
     }
+    
   }
 
 }
