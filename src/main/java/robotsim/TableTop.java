@@ -1,15 +1,15 @@
 package robotsim;
 
 /**
- * TableTop class.
+ * Class representation of table top.
  */
 public class TableTop {
   
   /** The X constraint of the TableTop. */
-  private int xConstraint;
+  private int tableWidth;
   
   /** The Y constraint of the TableTop. */
-  private int yConstraint;
+  private int tableHeight;
   
   /** The current robot. */
   private Robot currentRobot;
@@ -17,12 +17,12 @@ public class TableTop {
   /**
    * Instantiates a new table top.
    *
-   * @param x the x constraint of the table
-   * @param y the y constraint of the table
+   * @param width the x constraint of the table
+   * @param height the y constraint of the table
    */
-  public TableTop(int x, int y) {
-    xConstraint = x;
-    yConstraint = y;
+  public TableTop(int width, int height) {
+    tableWidth = width;
+    tableHeight = height;
   }
 
   /**
@@ -30,8 +30,8 @@ public class TableTop {
    *
    * @return the x constraint
    */
-  public int getXConstraint() {
-    return xConstraint;
+  public int getTableWidth() {
+    return tableWidth;
   }
 
   /**
@@ -39,8 +39,8 @@ public class TableTop {
    *
    * @return the y constraint
    */
-  public int getYConstraint() {
-    return yConstraint;
+  public int getTableHeight() {
+    return tableHeight;
   }
 
   /**

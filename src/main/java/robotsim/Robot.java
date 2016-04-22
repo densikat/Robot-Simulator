@@ -1,16 +1,17 @@
 package robotsim;
 
 /**
- * The Class RobotDemo.
+ * Class representation of a Robot.
  */
 public class Robot {
 
   /** The current x. */
-  private int currentX;
+  private int currentWidth;
   
   /** The current y. */
-  private int currentY;
+  private int currentHeight;
   
+  /** The direction. */
   private Integer direction;
   
   /** The Constant moveLength. */
@@ -26,12 +27,17 @@ public class Robot {
    *
    * @return the current x
    */
-  public int getCurrentX() {
-    return currentX;
+  public int getCurrentWidth() {
+    return currentWidth;
   }
   
-  public void setCurrentX(Integer x) {
-    currentX = x;
+  /**
+   * Sets the current x.
+   *
+   * @param width the new current x
+   */
+  public void setCurrentWidth(int width) {
+    currentWidth = width;
   }
 
   /**
@@ -39,42 +45,74 @@ public class Robot {
    *
    * @return the current y
    */
-  public int getCurrentY() {
-    return currentY;
+  public int getCurrentHeight() {
+    return currentHeight;
   }
   
-  public void setCurrentY(Integer y) {
-    currentY = y;
+  /**
+   * Sets the current y.
+   *
+   * @param height the new current y
+   */
+  public void setCurrentHeight(int height) {
+    currentHeight = height;
   }
   
+  /**
+   * Gets the direction.
+   *
+   * @return the direction
+   */
   public Integer getDirection() {
     return direction;
   }
   
+  /**
+   * Sets the direction.
+   *
+   * @param dir the new direction
+   */
   public void setDirection(Integer dir) {
     direction = dir;
   }
   
-  public Integer getNewXLocation() {
+  /**
+   * Gets the new x location.
+   *
+   * @return the new x location
+   */
+  public Integer getNewHorizontalLocation() {
     // Facing EAST, incremement current X, else
     // facing WEST, decrement current X
     if (this.getDirection() == 2) {
-      return this.getCurrentX() + this.moveLength;
+      return this.getCurrentWidth() + this.moveLength;
     } else {
-      return this.getCurrentX() - this.moveLength;
+      return this.getCurrentWidth() - this.moveLength;
     }
   }
   
-  public Integer getNewYLocation() {
+  /**
+   * Gets the new y location.
+   *
+   * @return the new y location
+   */
+  public Integer getNewVerticalLocation() {
     // Facing NORTH, incremement current Y, else
     // facing SOUTH, decrement current X
     if (this.getDirection() == 1) {
-      return this.getCurrentY() + this.moveLength;
+      return this.getCurrentHeight() + this.moveLength;
     } else {
-      return this.getCurrentY() - this.moveLength;
+      return this.getCurrentHeight() - this.moveLength;
     }
   }
   
+  /**
+   * Execute instruction.
+   *
+   * @param command the command to execute
+   * @param instruction the instruction to execute
+   * @param table the table to execute the instruction on
+   */
   public void executeInstruction(Command command, Instruction instruction, TableTop table) {
     if (instruction.validateInstruction(command, this, table)) {
       instruction.executeInstruction(command, this, table);

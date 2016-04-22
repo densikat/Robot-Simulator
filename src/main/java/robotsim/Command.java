@@ -9,10 +9,10 @@ public class Command {
   private String commandText;
   
   /** The x coordinate. */
-  private int xCoordinate;
+  private int commandWidth;
   
   /** The y coordinate. */
-  private int yCoordinate;
+  private int commandHeight;
   
   /** The direction. */
   private Integer direction;
@@ -22,7 +22,6 @@ public class Command {
    * Sends that command to attemptParse function
    * if command is valid then instance will be populated with 
    * relevant values.
-   * 
    * If not the instance will be tagged as INVALID for later handling
    *
    * @param cmdText the command text input from file or user
@@ -39,14 +38,14 @@ public class Command {
    * Instantiates a new command.
    *
    * @param cmdText the cmd text
-   * @param x the x
-   * @param y the y
+   * @param width the x
+   * @param height the y
    * @param dir the direction in the command
    */
-  public Command(String cmdText, int x, int y, int dir) {
+  public Command(String cmdText, int width, int height, int dir) {
     commandText = cmdText;
-    xCoordinate = x;
-    yCoordinate = y;
+    commandWidth = width;
+    commandHeight = height;
     direction = dir;
   }
   
@@ -65,7 +64,7 @@ public class Command {
    * @return the xcoordinate
    */
   public int getXcoordinate() {
-    return xCoordinate;
+    return commandWidth;
   }
   
   /**
@@ -74,7 +73,7 @@ public class Command {
    * @return the ycoordinate
    */
   public int getYcoordinate() {
-    return yCoordinate;
+    return commandHeight;
   }
   
   /**
@@ -148,8 +147,8 @@ public class Command {
     if (splitArgs.length == 3) {
       try {
         commandText = "PLACE";
-        xCoordinate = Integer.parseInt(splitArgs[0]);
-        yCoordinate = Integer.parseInt(splitArgs[1]);
+        commandWidth = Integer.parseInt(splitArgs[0]);
+        commandHeight = Integer.parseInt(splitArgs[1]);
         
         switch (splitArgs[2].toString().toUpperCase()) {
           case "NORTH":

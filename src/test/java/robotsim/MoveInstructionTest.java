@@ -59,7 +59,7 @@ public class MoveInstructionTest {
     instruction = instructionFactory.getInstruction(moveCmd);
     robot.executeInstruction(moveCmd, instruction, table);
     
-    assertEquals(robot.getCurrentX(),0);
+    assertEquals(robot.getCurrentWidth(),0);
   }
   
 }

@@ -1,6 +1,17 @@
 package robotsim;
 
+/**
+ * A factory for creating Instruction objects,
+ * objects based on command text input. 
+ */
 public class InstructionFactory {
+  
+  /**
+   * Gets the instruction.
+   *
+   * @param command the command
+   * @return the instruction
+   */
   public Instruction getInstruction(Command command) {
     
     Instruction instruction = null;

@@ -6,9 +6,8 @@ import java.io.InputStreamReader;
 import java.util.stream.Stream;
 import java.nio.file.*;
 
-
 /**
- * The Class Simulator.
+ * Simulator class launches and controls execution flow of game.
  */
 public class Simulator {
   
@@ -19,7 +18,7 @@ public class Simulator {
    */
   public static void main(String[] args) {
     
-    printWelcome();
+    printWelcomeMessage();
     
     TableTop table = new TableTop(4,4);
     
@@ -41,8 +40,8 @@ public class Simulator {
       
       try {
         launchInteractive(mrRobot, table);
-      } catch (IOException e) {
-        e.printStackTrace();
+      } catch (IOException ioException) {
+        ioException.printStackTrace();
       }
     }
     
@@ -57,15 +56,10 @@ public class Simulator {
    */
   private static void launchInteractive(Robot robot, TableTop table) throws IOException {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    InstructionFactory instructionFactory = new InstructionFactory();
     
     while (true) {
       String cmdString = br.readLine();
-      Command cmd = new Command(cmdString);
-      Instruction instruction = instructionFactory.getInstruction(cmd);
-      if (!(instruction == null)) {
-        robot.executeInstruction(cmd, instruction, table);
-      }
+      processCommand(cmdString, robot, table);
     }
     
   }
@@ -79,22 +73,31 @@ public class Simulator {
    */
   private static void launchNonInteractive(String path, Robot robot, TableTop table) {
     
-    InstructionFactory instructionFactory = new InstructionFactory();
-    
     try (Stream<String> stream = Files.lines(Paths.get(path))) {
 
       // loop through each line input file and execute the command
-      stream.forEach(item-> {
-        Command cmd = new Command(item);
-        Instruction instruction = instructionFactory.getInstruction(cmd);
-        if (!(instruction == null)) {
-          robot.executeInstruction(cmd, instruction, table);
-        }
-        
+      stream.forEach(cmdString-> {
+        processCommand(cmdString, robot, table);
       });
 
-    } catch (IOException e) {
-      e.printStackTrace();
+    } catch (IOException ioException) {
+      ioException.printStackTrace();
+    }
+  }
+  
+  /**
+   * Process command.
+   *
+   * @param cmdString the cmd string
+   * @param robot the robot
+   * @param table the table
+   */
+  private static void processCommand(String cmdString, Robot robot, TableTop table) {
+    InstructionFactory instructionFactory = new InstructionFactory();
+    Command cmd = new Command(cmdString);
+    Instruction instruction = instructionFactory.getInstruction(cmd);
+    if (!(instruction == null)) {
+      robot.executeInstruction(cmd, instruction, table);
     }
   }
   
@@ -120,7 +123,7 @@ public class Simulator {
   /**
    * Prints the welcome.
    */
-  private static void printWelcome() {
+  private static void printWelcomeMessage() {
     System.out.println("Welcome to Robot Simulator!");
   }
   

@@ -25,6 +25,7 @@ Initially developed on
 * Windows 10
 * OS X El Capitan (10.11.4)
 * Ubuntu 15.10
+* Ubuntu 16.04
 
 ## Usage Instructions
 
@@ -131,7 +132,7 @@ Class does the following:
     Initializes robot and table
     Takes each command sequentially and processes them
     
-**RobotDemo.java**
+**Robot.java**
 
 _Class representation of a robot_
 
@@ -155,6 +156,34 @@ _Class representation of Table Top_
 Does the following:
 
     Initializes a table top with specific X and Y upper bounds
+
+**Direction.java**
+
+_Direction class, uses hashtable internally to represent directions_
+
+_This class was implemented to provide a way to arithmetically (via hashtable index) achieve rotation instructions_
+
+Does the following:
+
+    Returns string representation of direction based on hashtable index.
+
+**Instruction.java**
+
+_Interface used to spawn instruction objects_
+
+_Move, Place, Report, Left, Right, Report instruction classes all spawn off this interface and provide these methods_
+
+Does the following:
+
+    Provides validation and execution methods for instruction
+
+**InstructionFactory.java**
+
+_Factory class used to dynamically generate instruction objects based on command text_
+
+Does the following:
+
+    Returns instruction object instances
 
 ## License
 

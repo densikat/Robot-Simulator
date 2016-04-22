@@ -1,7 +1,13 @@
 package robotsim;
 
+/**
+ * Instruction to rotate robot right on table.
+ */
 public class RightInstruction implements Instruction {
 
+  /* (non-Javadoc)
+   * @see robotsim.Instruction#validateInstruction(robotsim.Command, robotsim.Robot, robotsim.TableTop)
+   */
   @Override
   public Boolean validateInstruction(Command command, Robot robot, TableTop table) {
     if (table.getCurrentRobot() == robot) {
@@ -11,6 +17,9 @@ public class RightInstruction implements Instruction {
     }
   }
 
+  /* (non-Javadoc)
+   * @see robotsim.Instruction#executeInstruction(robotsim.Command, robotsim.Robot, robotsim.TableTop)
+   */
   @Override
   public void executeInstruction(Command command, Robot robot, TableTop table) {
     
