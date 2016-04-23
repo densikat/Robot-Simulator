@@ -121,7 +121,7 @@ Maven needs to be installed and working.
 
 For elaboration on the decision to dynamically generate commands at runtime and the advantages of this method see this document
 
-[Decision Decisions](DecisionDecisions.md)
+[Decision Decisions](DesignDecisions.md)
 
 ## Structure
 
