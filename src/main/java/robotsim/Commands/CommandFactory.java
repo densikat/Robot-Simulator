@@ -2,20 +2,34 @@ package robotsim.Commands;
 
 import java.util.Hashtable;
 
-public class RobotCommandFactory {
+/**
+ * A factory for creating Command objects.
+ */
+public class CommandFactory {
   
+  /** The command list. */
   private Hashtable<String, String> commandList;
   
-  public RobotCommandFactory() {
+  /**
+   * Instantiates a new command factory.
+   */
+  public CommandFactory() {
     commandList = new Hashtable<String, String>();
     
-    commandList.put("MOVE", "robotsim.Commands.RobotMoveCommand");
-    commandList.put("LEFT", "robotsim.Commands.RobotLeftCommand");
-    commandList.put("RIGHT", "robotsim.Commands.RobotRightCommand");
-    commandList.put("REPORT", "robotsim.Commands.RobotReportCommand");
-    commandList.put("PLACE", "robotsim.Commands.RobotPlaceCommand");
+    commandList.put("MOVE", "robotsim.Commands.MoveCommand");
+    commandList.put("LEFT", "robotsim.Commands.LeftCommand");
+    commandList.put("RIGHT", "robotsim.Commands.RightCommand");
+    commandList.put("REPORT", "robotsim.Commands.ReportCommand");
+    commandList.put("PLACE", "robotsim.Commands.PlaceCommand");
+    commandList.put("EXIT", "robotsim.Commands.ExitCommand");
   }
   
+  /**
+   * Gets the class name.
+   *
+   * @param cmdString the cmd string
+   * @return the class name
+   */
   private String getClassName(String cmdString) {
     String classString = "";
     if (commandList.containsKey(cmdString)) {
@@ -26,15 +40,20 @@ public class RobotCommandFactory {
   }
   
   /**
-   * Gets the command.
+   * If the command is in our hashtable keys
+   * then return the relevant instance of the object
+   * based on the hashtable value. Object is dynamically
+   * generated using reflection.
+   * If not a valid command then return null object
+   * caller needs to check for this.
    *
    * @param cmdCommand string representation of command
    * @return the command
    */
   
-  public RobotCommand getCommand(String cmdCommand) {
+  public Command getCommand(String cmdCommand) {
     
-    RobotCommand command = null;
+    Command command = null;
     
     // Split string on space
     String[] splitCommand = cmdCommand.split(" ");
@@ -43,7 +62,7 @@ public class RobotCommandFactory {
     
     if (!(className.equals(""))) {
       try {
-        command = (RobotCommand) Class.forName(className).newInstance();
+        command = (Command) Class.forName(className).newInstance();
         command.initializeCommand(cmdCommand);
       } catch (InstantiationException e) {
         e.printStackTrace();

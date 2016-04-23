@@ -5,12 +5,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.stream.Stream;
 
-import robotsim.Commands.RobotCommand;
-import robotsim.Commands.RobotCommandFactory;
+import robotsim.Commands.Command;
+import robotsim.Commands.CommandFactory;
 
 import java.nio.file.*;
 
-// TODO: Auto-generated Javadoc
 /**
  * Simulator class launches and controls execution flow of game.
  */
@@ -72,7 +71,7 @@ public class Simulator {
   /**
    * Launch non interactive.
    *
-   * @param path the path
+   * @param path the path to file with commands
    * @param robot the robot
    * @param table the table
    */
@@ -91,7 +90,9 @@ public class Simulator {
   }
   
   /**
-   * Process command.
+   * Take command string
+   * Use command factory to generate command object
+   * If valid then send to robot to execute command
    *
    * @param cmdString the cmd string
    * @param robot the robot
@@ -99,9 +100,10 @@ public class Simulator {
    */
   private static void processCommand(String cmdString, Robot robot, TableTop table) {
     
-    RobotCommandFactory commandFactory = new RobotCommandFactory();
-    RobotCommand command = commandFactory.getCommand(cmdString);
+    CommandFactory commandFactory = new CommandFactory();
+    Command command = commandFactory.getCommand(cmdString);
     
+    // If we have a valid command back then send it to robot to execute
     if (!(command == null)) {
       robot.executeInstruction(command, table);
     }

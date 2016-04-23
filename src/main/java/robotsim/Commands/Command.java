@@ -3,7 +3,10 @@ package robotsim.Commands;
 import robotsim.Robot;
 import robotsim.TableTop;
 
-public abstract class RobotCommand {
+/**
+ * Class representation of a command
+ */
+public abstract class Command {
   /** The command text. */
   private String commandText;
   
@@ -88,7 +91,27 @@ public abstract class RobotCommand {
     return direction;
   }
   
+  /**
+   * Initialize command.
+   *
+   * @param cmdString the cmd string
+   */
   public abstract void initializeCommand(String cmdString);
+  
+  /**
+   * Validate instruction.
+   *
+   * @param robot the robot
+   * @param table the table
+   * @return the boolean
+   */
   public abstract Boolean validateInstruction(Robot robot, TableTop table);
+  
+  /**
+   * Execute instruction.
+   *
+   * @param robot the robot
+   * @param table the table
+   */
   public abstract void executeInstruction(Robot robot, TableTop table);
 }

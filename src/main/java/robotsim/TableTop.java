@@ -1,15 +1,14 @@
 package robotsim;
 
-// TODO: Auto-generated Javadoc
 /**
  * Class representation of table top.
  */
 public class TableTop {
   
-  /** The X constraint of the TableTop. */
+  /** The width of the TableTop. */
   private int tableWidth;
   
-  /** The Y constraint of the TableTop. */
+  /** The height of the TableTop. */
   private int tableHeight;
   
   /** The current robot. */
@@ -18,8 +17,8 @@ public class TableTop {
   /**
    * Instantiates a new table top.
    *
-   * @param width the x constraint of the table
-   * @param height the y constraint of the table
+   * @param width the width of the table
+   * @param height the height of the table
    */
   public TableTop(int width, int height) {
     tableWidth = width;
@@ -27,25 +26,25 @@ public class TableTop {
   }
 
   /**
-   * Gets the x constraint.
+   * Gets the width of the table.
    *
-   * @return the x constraint
+   * @return the width
    */
   public int getTableWidth() {
     return tableWidth;
   }
 
   /**
-   * Gets the y constraint.
+   * Gets the height of the table
    *
-   * @return the y constraint
+   * @return the height of the table
    */
   public int getTableHeight() {
     return tableHeight;
   }
 
   /**
-   * Gets the current robot.
+   * Gets the current robot on the table.
    *
    * @return the current robot
    */
@@ -54,7 +53,7 @@ public class TableTop {
   }
 
   /**
-   * Sets the current robot.
+   * Sets the current robot on the table.
    *
    * @param robot the new current robot
    */

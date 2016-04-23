@@ -3,14 +3,23 @@ package robotsim.Commands;
 import robotsim.Robot;
 import robotsim.TableTop;
 
-public class RobotMoveCommand extends RobotCommand {
+/**
+ * Command to move robot forward in the direction its facing
+ */
+public class MoveCommand extends Command {
 
+  /* (non-Javadoc)
+   * @see robotsim.Commands.Command#initializeCommand(java.lang.String)
+   */
   @Override
   public void initializeCommand(String cmdString) {
     this.setCommandText("MOVE");
 
   }
 
+  /* (non-Javadoc)
+   * @see robotsim.Commands.Command#validateInstruction(robotsim.Robot, robotsim.TableTop)
+   */
   @Override
   public Boolean validateInstruction(Robot robot, TableTop table) {
     Boolean validMove = false;
@@ -38,6 +47,9 @@ public class RobotMoveCommand extends RobotCommand {
     return validMove;
   }
 
+  /* (non-Javadoc)
+   * @see robotsim.Commands.Command#executeInstruction(robotsim.Robot, robotsim.TableTop)
+   */
   @Override
   public void executeInstruction(Robot robot, TableTop table) {
     switch (robot.getDirection()) {

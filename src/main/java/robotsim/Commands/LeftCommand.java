@@ -3,8 +3,14 @@ package robotsim.Commands;
 import robotsim.Robot;
 import robotsim.TableTop;
 
-public class RobotLeftCommand extends RobotCommand {
+/**
+ * Command to rotate robot to the left
+ */
+public class LeftCommand extends Command {
 
+  /* (non-Javadoc)
+   * @see robotsim.Commands.Command#validateInstruction(robotsim.Robot, robotsim.TableTop)
+   */
   @Override
   public Boolean validateInstruction(Robot robot, TableTop table) {
     if (table.getCurrentRobot() == robot) {
@@ -14,6 +20,9 @@ public class RobotLeftCommand extends RobotCommand {
     }
   }
 
+  /* (non-Javadoc)
+   * @see robotsim.Commands.Command#executeInstruction(robotsim.Robot, robotsim.TableTop)
+   */
   @Override
   public void executeInstruction(Robot robot, TableTop table) {
     int newDirection;
@@ -29,6 +38,9 @@ public class RobotLeftCommand extends RobotCommand {
     
   }
 
+  /* (non-Javadoc)
+   * @see robotsim.Commands.Command#initializeCommand(java.lang.String)
+   */
   @Override
   public void initializeCommand(String cmdString) {
     this.setCommandText(cmdString);

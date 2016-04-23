@@ -3,9 +3,9 @@ package robotsim;
 import java.util.Hashtable;
 import java.util.Map;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class Direction.
+ * Direction class. Stores valid directions
+ * Validate and return directions
  */
 public class Direction {
   
@@ -26,8 +26,8 @@ public class Direction {
   /**
    * Validate direction.
    *
-   * @param direction the direction
-   * @return the boolean
+   * @param direction string representation of a direction
+   * @return true is valid direction, false otherwise
    */
   public Boolean validateDirection (String direction) {
     int returnInt = 0;

@@ -1,21 +1,20 @@
 package robotsim;
 
-import robotsim.Commands.RobotCommand;
+import robotsim.Commands.Command;
 
-// TODO: Auto-generated Javadoc
 /**
  * Class representation of a Robot.
  */
 public class Robot {
 
-  /** The current x. */
+  /** The current x location of the robot on the table. */
   private int currentWidth;
   
-  /** The current y. */
+  /** The current y location of the robot on the table. */
   private int currentHeight;
   
   /** The direction. */
-  private Integer direction;
+  private int direction;
   
   /** The Constant moveLength. */
   public final int moveLength = 1; // How far the robot is allowed to move
@@ -26,7 +25,7 @@ public class Robot {
   public Robot() {}
 
   /**
-   * Gets the current x.
+   * Gets the current x location of the robot.
    *
    * @return the current x
    */
@@ -35,7 +34,7 @@ public class Robot {
   }
   
   /**
-   * Sets the current x.
+   * Sets the current x location of the robot.
    *
    * @param width the new current x
    */
@@ -44,7 +43,7 @@ public class Robot {
   }
 
   /**
-   * Gets the current y.
+   * Gets the current y location of the robot.
    *
    * @return the current y
    */
@@ -53,7 +52,7 @@ public class Robot {
   }
   
   /**
-   * Sets the current y.
+   * Sets the current y location of the robot.
    *
    * @param height the new current y
    */
@@ -66,7 +65,7 @@ public class Robot {
    *
    * @return the direction
    */
-  public Integer getDirection() {
+  public int getDirection() {
     return direction;
   }
   
@@ -75,7 +74,7 @@ public class Robot {
    *
    * @param dir the new direction
    */
-  public void setDirection(Integer dir) {
+  public void setDirection(int dir) {
     direction = dir;
   }
   
@@ -84,7 +83,7 @@ public class Robot {
    *
    * @return the new x location
    */
-  public Integer getNewHorizontalLocation() {
+  public int getNewHorizontalLocation() {
     // Facing EAST, incremement current X, else
     // facing WEST, decrement current X
     if (this.getDirection() == 2) {
@@ -99,7 +98,7 @@ public class Robot {
    *
    * @return the new y location
    */
-  public Integer getNewVerticalLocation() {
+  public int getNewVerticalLocation() {
     // Facing NORTH, incremement current Y, else
     // facing SOUTH, decrement current X
     if (this.getDirection() == 1) {
@@ -110,13 +109,12 @@ public class Robot {
   }
   
   /**
-   * Execute instruction.
+   * Validate and execute the given instruction.
    *
    * @param command the command to execute
-   * @param instruction the instruction to execute
    * @param table the table to execute the instruction on
    */
-  public void executeInstruction(RobotCommand command, TableTop table) {
+  public void executeInstruction(Command command, TableTop table) {
     
     if (command.validateInstruction(this, table)) {
       command.executeInstruction(this, table);
