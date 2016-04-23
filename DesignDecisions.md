@@ -14,14 +14,14 @@ The command will allow a user to type "exit" to quit the game.
 
 Generate ExitCommand class of abstract Command superclass
 
-![ExitCommand](images/exitcommandgenerate.jpg)
+![ExitCommand](images/exitcommandgenerate.png)
 
 Add implementation for methods of derived ExitCommand class
 
-![WriteExitClass](images/writeexitclass.jpg)
+![WriteExitClass](images/writeexitclass.png)
 
 Add ExitCommand to CommandFactory hashtable
 
-![AddExitTotable](images/addexittotable.jpg)
+![AddExitTotable](images/addexittotable.png)
 
 As we can see this greatly simplifies additional command implementation 
