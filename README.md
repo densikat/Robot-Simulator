@@ -116,6 +116,12 @@ Maven needs to be installed and working.
     ```console
 	$ mvn test
 	```
+	
+## Design Decisions
+
+For elaboration on the decision to dynamically generate commands at runtime and the advantages of this method see this document
+
+[Decision Decisions](DecisionDecisions.md)
 
 ## Structure
 
@@ -140,14 +146,6 @@ Does the following:
     
     Takes a command and validates it against a given table
     Executes a command against a given table
-    
-**Command.java**
-
-_Class representation of a command_
-
-Does the following:
-
-    Takes a command string, parses string, if valid populates command instance fields
 
 **TabletTop.java**
 
@@ -167,23 +165,22 @@ Does the following:
 
     Returns string representation of direction based on hashtable index.
 
-**Instruction.java**
+    
+**Command.java**
 
-_Interface used to spawn instruction objects_
-
-_Move, Place, Report, Left, Right, Report instruction classes all spawn off this interface and provide these methods_
-
-Does the following:
-
-    Provides validation and execution methods for instruction
-
-**InstructionFactory.java**
-
-_Factory class used to dynamically generate instruction objects based on command text_
+_Abstract class the all other commands in the game are derived from_
 
 Does the following:
 
-    Returns instruction object instances
+Has three abstract methods that must be implemented by derived classes
+    
+* _initializeCommand_ - takes command string, parses and validates string, populates internal state of command if valid.
+* _validateInstruction_ - validates a command against the current state of the game. Returns true if command is valid.
+* _executeInstruction_ - executes a valid command
+
+**CommandFactory.java**
+
+_Maintains a list of valid commands and their relevant class representation in an internal hashtable. Used to dynamically generate command objects at runtime given string representation of a command_
 
 ## License
 

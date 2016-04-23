@@ -1,6 +1,6 @@
 ## Design Decisions
 
-I chose to use a factory class to generate commands dynamically. This relies on and internal hashtable inside the CommandFactory class. This relies on the use of Java reflection to dynamically instantiate command objects at runtime.
+I chose to use a factory class to generate commands dynamically. This relies on an internal hashtable inside the CommandFactory class. This relies on the use of Java reflection to dynamically instantiate command objects at runtime.
 
 The obvious benefit to this is the ease of adding on extra commands at a later point without having to modify many different locations in the code.
 
