@@ -22,5 +22,11 @@ public class CommandClassTest {
     Command cmd = commandFactory.getCommand("PLACE 0,1,1");
     assertEquals(cmd, null);
   }
-
+  
+  @Test()
+  public void testValidateSpaceinPlaceArguments() {
+    CommandFactory commandFactory = new CommandFactory();
+    Command cmd = commandFactory.getCommand("PLACE 0,0, NORTH");
+    assertEquals(cmd, null);
+  }
 }

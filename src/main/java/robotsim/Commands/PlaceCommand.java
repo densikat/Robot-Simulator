@@ -33,8 +33,10 @@ public class PlaceCommand extends Command {
     Direction direction = new Direction();
     
     // If input direction is not valid throw exception
-    if (!direction.validateDirection(splitArgs[2])) {
-      validCommand = false;
+    if (validCommand) {
+      if (!direction.validateDirection(splitArgs[2])) {
+        validCommand = false;
+      }
     }
     
     if (validCommand) {
